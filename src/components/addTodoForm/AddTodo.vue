@@ -9,6 +9,7 @@
               :model="summary"
               :label="'Summary'"
               :isPassword="false"
+              :icon="'mdi-message-minus-outline'"
               @changeInput="changeSummary"
             />
           </v-col>
@@ -17,6 +18,7 @@
               :model="description"
               :label="'Description'"
               :isPassword="false"
+              :icon="'mdi-text-subject'"
               @changeInput="changeDescription"
             />
           </v-col>

@@ -8,7 +8,8 @@
         readonly
         v-bind="attrs"
         v-on="on"
-        @click:clear="dateTime = null"
+        prepend-inner-icon="mdi-clock-time-eight-outline"
+        @click:clear="clearTime"
       ></v-text-field>
     </template>
     <v-date-picker
@@ -41,6 +42,10 @@ export default {
       // let date = moment(event).format("dddd, MMMM Do YYYY");
       this.$store.dispatch("selectDate", event);
     },
+    clearTime(){
+      this.$store.dispatch("selectDate", '');
+      
+    }
   },
 };
 </script>

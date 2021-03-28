@@ -17,6 +17,8 @@ export default {
   },
   addTodos(state, payload) {
     state.todoItems.push(payload);
+    state.description = '';
+    state.summary = '';
   },
   updateTodos() {
     // console.log("payload-----", payload);

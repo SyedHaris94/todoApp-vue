@@ -45,7 +45,7 @@
             </v-list-item-action>
             <v-list-item-content>
               <v-list-item-title> {{ item.title }}</v-list-item-title>
-              <v-list-item-subtitle> {{ item.due_at }}</v-list-item-subtitle>
+              <!-- <v-list-item-subtitle> {{ item.due_at }}</v-list-item-subtitle> -->
             </v-list-item-content>
             <v-list-item-icon>
               <v-icon @click="deleteTodo(item)" v-text="'mdi-delete'"></v-icon>
@@ -62,7 +62,6 @@ export default {
   created() {
     console.log("todoItems", this.todoItems);
   },
-  // props: ["items"],
   computed: {
     todoItems() {
       return this.$store.getters["getTodoItems"];

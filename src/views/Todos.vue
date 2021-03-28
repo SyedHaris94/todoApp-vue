@@ -9,7 +9,7 @@
       title="Add new task"
       @clickButton="addTodo"
       :rounded="false"
-      :icon="'mdi-pencil'"
+      :icon="'mdi-plus'"
     />
     <div class="todoContainer">
       <TodoList />

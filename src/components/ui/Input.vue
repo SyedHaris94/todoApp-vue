@@ -4,6 +4,7 @@
     :label="label"
     required
     :value="model"
+    :prepend-inner-icon="icon"
     @input="onchangeInput"
     :type="showPassword ? 'password' : 'text'"
     :append-icon="isPassword ? (showPassword ? 'mdi-eye' : 'mdi-eye-off') : ''"
@@ -15,7 +16,7 @@ export default {
   data: () => ({
     email: "",
   }),
-  props: ["model", "rules", "label", "isPassword", "showPassword"],
+  props: ["model", "rules", "label", "isPassword", "showPassword", 'icon'],
   methods: {
     // on text input change event
     onchangeInput(event) {
