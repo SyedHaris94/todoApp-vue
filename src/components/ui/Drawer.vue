@@ -2,8 +2,12 @@
   <v-navigation-drawer :clipped="clipped" absolute permanent left>
     <v-divider></v-divider>
     <v-list dense>
-      <v-list-item-group active-class="red" class="active-class">
+      <v-list-item-group
+        v-model="group"
+        active-class="deep-purple--text text--accent-4"
+      >
         <v-list-item
+          class="tile"
           @click="menuActionClick(item.action)"
           v-for="item in items"
           :key="item.title"
@@ -31,6 +35,15 @@
 import { clearStorage } from "../../helpers/helpers";
 
 export default {
+  data: () => ({
+    drawer: false,
+    group: null,
+  }),
+  watch: {
+    group() {
+      this.drawer = false;
+    },
+  },
   props: ["items", "clipped"],
   methods: {
     menuActionClick(action) {
@@ -51,6 +64,14 @@ export default {
   justify-content: space-around;
   padding: 35px;
 }
+.v-list-item-group .v-list-item--active {
+  color: white !important;
+  background-color: black;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 0px;
+}
+
 /* .active-class{
   background-color: black;
 } */
