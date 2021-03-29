@@ -1,35 +1,42 @@
 <template>
-  <v-navigation-drawer :clipped="clipped" absolute permanent left>
-    <v-divider></v-divider>
-    <v-list dense>
-      <v-list-item-group
-        v-model="group"
-        active-class="deep-purple--text text--accent-4"
-      >
-        <v-list-item
-          class="tile"
-          @click="menuActionClick(item.action)"
-          v-for="item in items"
-          :key="item.title"
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
+  <div class="paddingContainer">
+    <v-app-bar color="deep-purple accent-4">
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    </v-app-bar>
 
-          <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
-    <template v-slot:append>
-      <div class="container-logout">
-        <v-icon>{{ "mdi-logout" }}</v-icon>
-        <v-btn @click="menuActionClick('')" block> Logout </v-btn>
-      </div>
-    </template>
-  </v-navigation-drawer>
+    <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-list nav dense>
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
+        >
+          <v-list-item
+            class="tile"
+            @click="menuActionClick(item.action)"
+            v-for="item in items"
+            :key="item.title"
+          >
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+
+            <v-list-item-content>
+              <v-list-item-title>{{ item.title }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+      <template v-slot:append>
+        <div class="container-logout">
+          <v-icon>{{ "mdi-logout" }}</v-icon>
+          <v-btn @click="menuActionClick('')" block> Logout </v-btn>
+        </div>
+      </template>
+    </v-navigation-drawer>
+    <!-- </v-card> -->
+  </div>
 </template>
+
 
 <script>
 import { clearStorage } from "../../helpers/helpers";

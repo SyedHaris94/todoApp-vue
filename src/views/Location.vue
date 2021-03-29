@@ -2,12 +2,14 @@
   <div>
     <div>
       <Drawer :items="drawerItems" />
-      <Button
-        @clickButton="getCurrentLocation"
-        title="Check In"
-        :rounded="false"
-        :icon="'mdi-plus'"
-      />
+      <div class="paddingContainer">
+        <Button
+          @clickButton="getCurrentLocation"
+          title="Check In"
+          :rounded="false"
+          :icon="'mdi-plus'"
+        />
+      </div>
       <div class="listContainer">
         <LocationList />
       </div>
@@ -61,5 +63,9 @@ export default {
 .listContainer {
   display: flex;
   justify-content: center;
+}
+
+.paddingContainer {
+  padding-top: 20px;
 }
 </style>

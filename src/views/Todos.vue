@@ -5,12 +5,15 @@
     <div data-app>
       <custom-Dialog v-model="dialog" @closeModal="closeModal"> </custom-Dialog>
     </div>
-    <Button
-      title="Add new task"
-      @clickButton="addTodo"
-      :rounded="false"
-      :icon="'mdi-plus'"
-    />
+    <div class="paddingContainer">
+      <Button
+        title="Add new task"
+        @clickButton="addTodo"
+        :rounded="false"
+        :icon="'mdi-plus'"
+      />
+    </div>
+
     <div class="todoContainer">
       <TodoList />
     </div>
@@ -69,5 +72,9 @@ export default {
 .todoContainer {
   display: flex;
   justify-content: center;
+}
+
+.paddingContainer {
+  padding-top: 20px;
 }
 </style>
